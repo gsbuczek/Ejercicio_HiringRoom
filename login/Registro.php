@@ -1,36 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro</title>
     <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <?php require_once 'C:\wamp64\www\Proyecto_Hiringroom\codigos\cabecera.php' ?>
+    <?php require_once 'C:\wamp64\www\Proyecto_Hiringroom\codigos\cabecera.php'?>
     
     <h1>Registrarse</h1>
 
-    <?php if(!empty($message)):?>
-        <p><?= $message ?></p>
-    <?php endif;?>
+    <span><strong><a href="Login.php">Loguearse</a></strong></span><br><br>
 
-    <span>o<a href="Login.php">Loguearse</a></span>
-
-    <form action="mostrar.php" method="POST">
+    <?php 
+        if (!empty($_GET['error'])){
+        $error = $_GET['error'];
+        if ($error == 'FALTAN VALORES POR AGREGAR'){
+            echo '<strong style="color:red">Introduce todos los valores en el formulario</strong>';
+        }
+        if ($error == 'nombre'){
+            echo '<strong style="color:red">Introduce bien el nombre en el formulario</strong>';
+        }
+        if ($error == 'apellido'){
+            echo '<strong style="color:red">Introduce bien el apellido en el formulario</strong>';
+        }
+        if ($error == 'username'){
+            echo '<strong style="color:red">Introduce bien el username en el formulario</strong>';
+        }
+        if ($error == 'email'){
+            echo '<strong style="color:red">Introduce bien el email en el formulario</strong>';
+        }
+        if ($error == 'password'){
+            echo '<strong style="color:red">Introduce bien la contraseña en el formulario</strong>';
+        }
+        if ($error == 'OK'){
+            echo '<strong style="color:green">OK</strong>';
+        }
+        }
+    ?>
+    
+    <form action="Validacion_Formulario.php" method="POST">
     <p>
-    <input type="text" name="email" placeholder="E-mail">
+        <input type="text" name="nombre" placeholder="Nombre">
     </p>
     <p>
-    <input type="text" name="pass" placeholder="Contraseña">
+        <input type="text" name="apellido" placeholder="Apellido" >
     </p>
     <p>
-    <input type="text" name="confirmar-password" placeholder="Confirmar Contraseña">
+        <input type="text" name="username" placeholder="Username" >
     </p>
-    <input type="submit" value="Enviar">
+    <p>
+        <input type="email" name="email" placeholder="E-mail" >
+    </p>
+    <p>
+        <input type="password" name="password" placeholder="Contraseña">
+    </p>
+ 
+        <input type="submit" value="Enviar">
     </form>
 </body>
 

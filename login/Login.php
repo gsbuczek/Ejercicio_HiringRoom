@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <?php require_once 'C:\xampp\htdocs\Proyecto_Hiringroom\codigos\cabecera.php' ?>
+    <?php require_once 'C:\wamp64\www\Proyecto_Hiringroom\codigos\cabecera.php' ?>
     <h1>LOGIN</h1>
-    <span>o<a href="Registro.php">Registrarse</a></span>
+    <span><strong><a href="Registro.php">Registrarse</a></strong></span><br><br>
     <form action="Login.php" method="POST">
     <p>
     <input type="email" name="email" placeholder="E-mail">
@@ -23,3 +21,11 @@
     </form>
 </body>
 </html>
+
+<?php 
+        function busquedaXEstado($vacantes){
+            foreach ($vacantes as $estado){
+                echo $estado['estado']."<br>";
+            }
+        }
+?>
